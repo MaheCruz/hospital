@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>SANTA FE</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a href="index.html" class="navbar-brand">SANTA FE</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+        </div>
+    </nav>
+
+    <div class="container-fluid gtco-features" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="btn-group-vertical" role="group">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="user-info text-center">
+                        <i class="fa fa-user user-icon"></i>
+                        <p>Doctor: Juan</p>
+                        <p>Especialidad: Odontologia</p>
+                        <p>Género: Masculino</p>
+                    </div>
+                </div>
+                <div class="col-lg-8" id="department-content">
+                    <!-- Contenido del departamento se mostrará aquí -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Pacientes</th>
+                                <th scope="col">Enfermedades</th>
+                                <!-- Agrega más columnas según sea necesario -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Juan Perez (21), 70kg, 178cm</td>
+                                <td>Muela picada</td>
+                                <!-- Agrega más celdas según sea necesario -->
+                            </tr>
+                            <tr>
+                                <td>Pedro Jimenez (68), 50kg, 160cm</td>
+                                <td>Dentadura</td>
+                            </tr>
+                            <tr>
+                                <td>Sandra Lopez (32), 56kg, 157cm</td>
+                                <td>Brackets</td>
+                            </tr>
+                            <!-- Agrega más filas según sea necesario -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resto del código ... -->
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function showDepartment(department) {
+            // Aquí puedes cambiar el contenido de la segunda columna según el departamento seleccionado
+            var departmentContent = document.getElementById('department-content');
+            departmentContent.innerHTML = '<h3>' + department.toUpperCase() + '</h3><p>Contenido específico del departamento ' + department + '</p>';
+        }
+    </script>
+
+</body>
+
+</html>

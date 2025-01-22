@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>SANTA FE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Alinea los elementos en columna */
+            background-color: #f3f3fd;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: space-around; /* Distribuye los elementos de manera uniforme */
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .login-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            transition: box-shadow 0.3s;
+        }
+
+        .login-form:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-form h2,
+        .login-form button {
+            color: #3A8EF6;
+        }
+
+        .login-form img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #3A8EF6;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #002333;
+            transition: color 0.3s;
+        }
+
+        .login-form input:focus {
+            color: #000;
+        }
+
+        .login-form button {
+            background-color: #3A8EF6;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #002333;
+        }
+
+        .login-form button:focus {
+            background-color: #002333;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            text-align: right;
+            color: #3A8EF6;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1.2em;
+            color: #3A8EF6;
+            outline: none;
+        }
+
+        .line-through {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #3A8EF6;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Encabezado de la página -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a class="navbar-brand">SANTA FE</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="home.html">Inicio</a></li>
+                    <li class="nav-item"><a href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a href="contacto.html">Contacto</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="index.html" class="btn btn-outline-dark my-2 my-sm-0 mr-3 text-uppercase">Iniciar sesión</a> 
+                    <a href="registro.html"  class="btn btn-info my-2 my-sm-0 text-uppercase">Registrarse
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Contenedor del formulario y la imagen -->
+    <div class="login-container">
+        <!-- Formulario de Registro -->
+        <form class="login-form" onsubmit="return validateForm()">
+            <h2>Registro de Usuario</h2>
+
+            <div class="form-group">
+                <label for="firstName" style="text-align: left;">Nombre:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Ingresa tu nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName" style="text-align: left;">Apellido:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Ingresa tu apellido" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email" style="text-align: left;">Correo:</label>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate-gender" style="text-align: left;">Fecha de Nacimiento:</label>
+                <div style="display: flex; align-items: center;">
+                    <input type="date" id="birthdate" name="birthdate" required>
+                    <label for="gender" style="margin-left: 20px;">Género:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">Mujer</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" style="text-align: left;">Contraseña:</label>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña"
+                        pattern=".{8,32}" title="Mínimo 8 y máximo 32 caracteres" required>
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('password', 'password-toggle-button')">👁️</button>
+                    <div class="line-through" id="password-line-through"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword" style="text-align: left;">Confirmar Contraseña:</label>
+                <div style="position: relative;">
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                        placeholder="Confirma tu contraseña" pattern=".{8,32}" title="Mínimo 8 y máximo 32 caracteres"
+                        onkeyup="checkPasswordMatch()" required>
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('confirmPassword', 'confirmPassword-toggle-button')">👁️</button>
+                    <div class="line-through" id="confirmPassword-line-through"></div>
+                </div>
+                <div id="matchMessage"></div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Registrarse</button>
+            </div>
+        </form>
+
+        <!-- Imagen -->
+        <div class="login-container">
+            <img src="images/doc.png" alt="Imagen de Salud" width="500" />
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility(fieldId, toggleButtonId) {
+            const passwordField = document.getElementById(fieldId);
+            const toggleButton = document.getElementById(toggleButtonId);
+            const lineThrough = document.getElementById(`${fieldId}-line-through`);
+
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+            toggleButton.textContent = passwordField.type === "password" ? "👁️" : "👁";
+            toggleButton.style.color = passwordField.type === "password" ? "#3A8EF6" : "red";
+            lineThrough.style.display = passwordField.type === "password" ? "none" : "block";
+        }
+
+        function checkPasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const matchMessage = document.getElementById('matchMessage');
+
+            if (password === confirmPassword) {
+                matchMessage.style.color = 'green';
+                matchMessage.textContent = 'Las contraseñas coinciden';
+            } else {
+                matchMessage.style.color = 'red';
+                matchMessage.textContent = 'Las contraseñas no coinciden';
+            }
+        }
+
+        function validateForm() {
+            const fields = ['firstName', 'lastName', 'email', 'birthdate', 'gender', 'password', 'confirmPassword'];
+            let isValid = true;
+
+            fields.forEach(field => {
+                const value = document.getElementById(field).value;
+                if (!value) {
+                    isValid = false;
+                    document.getElementById(field).style.borderColor = 'red';
+                } else {
+                    document.getElementById(field).style.borderColor = '#ddd';
+                }
+            });
+
+            // Validar formato de correo electrónico
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                isValid = false;
+                document.getElementById('email').style.borderColor = 'red';
+            } else {
+                document.getElementById('email').style.borderColor = '#ddd';
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+
+</html>
+
+       

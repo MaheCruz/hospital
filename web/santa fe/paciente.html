@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>SANTA FE</title>
+    <style>
+        body {
+          background-image: url('images/fondo1.jpg'); 
+          background-size: cover; 
+          background-position: center; 
+          
+        }
+      </style>
+    <style>
+       
+
+        .user-info {
+            margin-bottom: 20px;
+            text-align: left; 
+            width: 100%; 
+        }
+
+        .scrollable-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border-bottom: 15px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            padding: 30px;
+            background-color: #f2f2f2;
+            margin-inline-start: auto;
+        }
+
+        .button-spacing {
+            margin-top: 20px;
+            text-align: left; 
+        }
+    </style>
+</head>
+
+<body>
+   
+        <div class="container"><a href="index.html" class="navbar-brand">SANTA FE</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+        </div>
+    </nav>
+
+    <div class="container-fluid gtco-features" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="user-info text-center">
+                        <p>Selecciona el area donde deseas agendar tu cita</p>
+                        <i class="fa fa-arrow-down"></i> <!-- Icono de flecha hacia abajo -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 button-spacing"> 
+                    <button class="btn btn-primary" onclick="showEmailList('pediatria')">------- Pediatria -------</button>
+                    <button class="btn btn-primary" onclick="showEmailList('psicologia')">------- Psicologia -------</button>
+                    <button class="btn btn-primary" onclick="showEmailList('odontolgia')">------- Odontologia -------</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="user-info text-center">
+                        <br>
+                        <h4 style="font-family: 'Courier New', sans-serif;">Observa los horarios y elije.</h4>
+                        <div class="scrollable-list">
+                            <table id="emailTable">
+                                <thead>
+                                    <tr>
+                                        <th>Mi doctor</th>
+                                        <th>Mis Datos</th>
+                                        <th>Horario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function showEmailList(type) {
+            var emailTable = document.getElementById('emailTable').getElementsByTagName('tbody')[0];
+            emailTable.innerHTML = ''; 
+
+            switch (type) {
+                case 'pediatria':
+                    emailTable.innerHTML += '<tr><td>Juan Perez</td><td>Nombre: Juan</td><td>Apellido: Pérez</td><td>Fecha de Nacimiento: 01/01/1990</td><td>Género: Masculino</td><td>Peso: 70 kg</td><td>Altura: 170 cm</td><td>9 am-4 pm</td></tr>';
+                    emailTable.innerHTML += '<tr><td>Sandra Lopez</td><td>Nombre: Juan</td><td>Apellido: Pérez</td><td>Fecha de Nacimiento: 01/01/1990</td><td>Género: Masculino</td><td>Peso: 70 kg</td><td>Altura: 170 cm</td><td>10 am- 2 pm</td></tr>';
+                    break;
+                case 'psicologia':
+                    emailTable.innerHTML += '<tr><td>Juan Gomez</td><td>Nombre: Juan</td><td>Apellido: Pérez</td><td>Fecha de Nacimiento: 01/01/1990</td><td>Género: Masculino</td><td>Peso: 70 kg</td><td>Altura: 170 cm</td><td>9 am-7 pm</td></tr>';
+                    emailTable.innerHTML += '<tr><td>Pedro Perez</td><td>Nombre: Juan</td><td>Apellido: Pérez</td><td>Fecha de Nacimiento: 01/01/1990</td><td>Género: Masculino</td><td>Peso: 70 kg</td><td>Altura: 170 cm</td><td>10 am-8 pm</td></tr>';
+                    break;
+                case 'odontologia':
+                    emailTable.innerHTML += '<tr><td>Carlos Contreras</td><td>Nombre: Juan</td><td>Apellido: Pérez</td><td>Fecha de Nacimiento: 01/01/1990</td><td>Género: Masculino</td><td>Peso: 70 kg</td><td>Altura: 170 cm</td><td>8 am-8 pm</td></tr>';
+                    emailTable.innerHTML += '<tr><td>Maria Avila</td><td>Nombre: Juan</td><td>Apellido: Pérez</td><td>Fecha de Nacimiento: 01/01/1990</td><td>Género: Masculino</td><td>Peso: 70 kg</td><td>Altura: 170 cm</td><td>9 am-8 pm</td></tr>';
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

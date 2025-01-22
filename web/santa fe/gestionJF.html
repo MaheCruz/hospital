@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard del Jefe de Área</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.perfil-options {
+    display: flex;
+}
+
+.perfil-btn {
+    margin-right: 10px;
+    position: relative;
+}
+
+.perfil-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.perfil-btn:hover .tooltip {
+    visibility: visible;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 80px;
+}
+
+.dashboard-item {
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dashboard-info p {
+    font-size: 24px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.doctores {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.perfil-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    z-index: 9999;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.perfil-content {
+    max-width: 400px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.user-profile {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #333;
+    font-size: 7px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 3px;
+    text-align: justify;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para el mini dashboard */
+.mini-dashboard {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.dashboard-item {
+    text-align: center;
+    font-weight: 300px;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #37ad3b;
+    width: 400px;
+}
+.citas-list {
+    list-style: none;
+    padding: 0;
+}
+
+.citas-list li {
+    margin-bottom: 10px;
+}
+
+.dashboard-item h3 {
+    margin-bottom: 5px;
+}
+
+</style>
+<body>
+    <header>
+        <div>
+        <h1>Dashboard del Jefe de Área - PEDRIATRIA</h1></div>
+        <div class="perfil-options" style="justify-content:right">
+            <p style="font-style: oblique;">Dra. Keyla Vazquez  </p>
+            <div class="dropdown">
+                <button class="dropbtn" id="perfilBtn">
+                    <img src="images/jf.png" alt="Perfil" style="height: 50px;">
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" id="logoutBtn">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="dashboard">
+        <div class="dashboard-item">
+            <h3>Total de Doctores</h3>
+            <div class="dashboard-info">
+                <p>5</p>
+            </div>
+        </div>
+        <div class="dashboard-item">
+            <h3>Citas Agendadas</h3>
+            <div class="dashboard-info">
+                <p>8</p>
+            </div>
+        </div>
+    </section>
+    <section class="doctores">
+        <h2>Doctores del Área</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Puesto</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dr. Juan Pérez</td>
+                    <td>Pediatra General</td>
+                    <td>juan@santafe.com</td>
+                    <td>
+                        <button class="anadirBtn">Añadir cita</button>
+                        <button class="editarBtn">Editar</button>
+                        <button class="borrarBtn">Borrar</button>
+                        <button class="detalleBtn">Ver citas+</button>
+                        <ul class="citas-list" style="display:none;">
+                            <li style="text-align: center;">Cita #1</li>
+                            <li>Nombre: Camila Juarez</li>
+                            <li>Edad: 1 año</li>
+                            <li>Consulta: 29-05-24 a las 10 hrs</li>
+                            <li style="text-align: center;">Cita #2</li>
+                            <li>Nombre: Jose Ruiz</li>
+                            <li>Edad: 18 meses</li>
+                            <li>Consulta: 29-05-24 a las 13 hrs</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dra. Vanessa Dominguez</td>
+                    <td>Neonatólogo</td>
+                    <td>vanessa@santafe.com</td>
+                    <td>
+                        <button class="anadirBtn">Añadir cita</button>
+                        <button class="editarBtn">Editar</button>
+                        <button class="borrarBtn">Borrar</button>
+                        <button class="detalleBtn">Ver citas+</button>
+                        <ul class="citas-list" style="display:none;">
+                            <li style="text-align: center;">Cita #1</li>
+                            <li>Nombre: Francisco Perez</li>
+                            <li>Edad: 12 dias</li>
+                            <li>Consulta: 27-05-24 a las 10 hrs</li>
+                            <li style="text-align: center;">Cita #2</li>
+                            <li>Nombre: Sofia Vergara</li>
+                            <li>Edad: 1 mes</li>
+                            <li>Consulta: 27-05-24 a las 14 hrs</li>
+                            <li style="text-align: center;">Cita #3</li>
+                            <li>Nombre: Jhonathan Chimal</li>
+                            <li>Edad: 2 mes</li>
+                            <li>Consulta: 28-05-24 a las 16 hrs</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dra. Joselin Huerta</td>
+                    <td>Pediatra Cardiólogo</td>
+                    <td>joselin@santafe.com</td>
+                    <td>
+                        <button class="anadirBtn">Añadir cita</button>
+                        <button class="editarBtn">Editar</button>
+                        <button class="borrarBtn">Borrar</button>
+                        <button class="detalleBtn">Ver citas+</button>
+                        <ul class="citas-list" style="display:none;">
+                            <li style="text-align: center;">Cita #1</li>
+                            <li>Nombre: Carolina Herrera</li>
+                            <li>Edad: 8 meses</li>
+                            <li>Consulta: 27-05-24 a las 9 hrs</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dra. Fernanda Gaspar</td>
+                    <td>Pediatra Infectólogoo</td>
+                    <td>fernanda@santafe.com</td>
+                    <td>
+                        <button class="anadirBtn">Añadir cita</button>
+                        <button class="editarBtn">Editar</button>
+                        <button class="borrarBtn">Borrar</button>
+                        <button class="detalleBtn">Ver citas+</button>
+                        <ul class="citas-list" style="display:none;">
+                            <li style="text-align: center;">Cita #1</li>
+                            <li>Nombre: Cesar Bravo</li>
+                            <li>Edad: 5 meses</li>
+                            <li>Consulta: 25-05-24 a las 11 hrs</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dr. Kevin Lopez</td>
+                    <td>Pediatra Oncólogo</td>
+                    <td>kevin@santafe.com</td>
+                    <td>
+                        <button class="anadirBtn">Añadir cita</button>
+                        <button class="editarBtn">Editar</button>
+                        <button class="borrarBtn">Borrar</button>
+                        <button class="detalleBtn">Ver citas+</button>
+                        <ul class="citas-list" style="display:none;">
+                            <li style="text-align: center;">Cita #1</li>
+                            <li>Nombre: Gerardo Contreras</li>
+                            <li>Edad: 11 meses</li>
+                            <li>Consulta: 29-05-24 a las 13 hrs</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="perfil-popup" id="perfilPopup">
+        <div class="perfil-content">
+            <span class="close" id="closePerfil">&times;</span>
+            <!-- Aquí se muestra la información del perfil -->
+            <p>Nombre: Dra. Keyla Vazquez</p>
+            <p>Puesto: Jefa de area de Pediatra</p>
+            <p>Correo: pediatria@santafe.com</p>
+            <p>Puesto: Jefe de Área</p>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Botón para ver el perfil
+        const perfilBtn = document.getElementById('perfilBtn');
+        const perfilPopup = document.getElementById('perfilPopup');
+        const closePerfil = document.getElementById('closePerfil');
+
+        perfilBtn.addEventListener('click', function () {
+            perfilPopup.style.display = 'block';
+        });
+
+        closePerfil.addEventListener('click', function () {
+            perfilPopup.style.display = 'none';
+        });
+
+        // Botón para cerrar sesión
+        const logoutBtn = document.getElementById('closePerfil');
+        logoutBtn.addEventListener('click', function () {
+            // Redirigir a la página de sesión al hacer clic en cerrar sesión
+            window.location.href = 'sesion.html';
+        });
+
+        // Botones para editar, borrar y ver detalles de las citas
+        const anadirBtn = document.querySelectorAll('.anadirBtn');
+        const editarBtns = document.querySelectorAll('.editarBtn');
+        const borrarBtns = document.querySelectorAll('.borrarBtn');
+        const detalleBtns = document.querySelectorAll('.detalleBtn');
+
+        // Agregar eventos a cada botón
+        anadirBtn.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Lógica para editar la cita
+                alert('Agregar cita');
+            });
+        });
+        editarBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Lógica para editar la cita
+                alert('Editar cita');
+            });
+        });
+
+        borrarBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Lógica para borrar la cita
+                alert('Borrar cita');
+            });
+        });
+
+        detalleBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const citasList = btn.parentElement.querySelector('.citas-list');
+                citasList.style.display = citasList.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    });
+</script>
+
+    </script>
+</body>
+</html>

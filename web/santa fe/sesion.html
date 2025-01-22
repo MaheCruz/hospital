@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Iniciar Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container-start {
+            margin-top: 50px;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            transition: box-shadow 0.3s ease-in-out;
+            display: flex; /* Centrar verticalmente */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            margin: 0 auto; /* Alinear horizontalmente */
+            margin-bottom: 30px;
+        }
+
+        .circle:hover {
+            box-shadow: 0 0 10px 5px #001f3f; /* Cambia el color del sombreado al pasar el cursor */
+        }
+
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #patient { background-color: #3498db; }
+        #doctor { background-color: #2980b9; }
+        #manager { background-color: #1abc9c; }
+        #admin { background-color: #16a085; }
+
+        .circle-name {
+            margin-top: 50px;
+            color: #000;
+            font-weight: bold;
+            background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+            display: inline;
+            padding: 5px 20px; /* Ajusta el espaciado interno según tus preferencias */
+            border-radius: 5px; /* Bordes circulares */
+            text-align: center; /* Centrar horizontalmente */
+        }
+
+        .inicia-como{
+            color: #000;
+            text-align: center;
+            font-size: 26px;
+            font-family: "Lato-Black";
+            text-transform: uppercase;
+            background: -webkit-linear-gradient(left, #112455 51%, rgb(1, 5, 100) 44%);
+            background: -ms-linear-gradient(left, #0e31de 51%, rgb(1, 5, 100) 44%);
+            background: -moz-linear-gradient(left, #0e31de 51%, rgb(1, 5, 100) 44%);
+            background: -o-linear-gradient(left, #0e31de 51%, rgb(1, 5, 100) 44%);
+            background: linear-gradient(to right, #0e31de 51%,rgb(1, 5, 100) 44%);
+            -webkit-background-clip: text;
+            -ms-background-clip: text;
+            -o-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -ms-text-fill-color: transparent;
+            -o-text-fill-color: transparent;
+        }
+        #gtco-main-nav::after {
+        position: absolute;
+        content: "";
+        height: 600px;
+        width: 900px;
+        background-image: -webkit-linear-gradient(-220deg, #c3cbf1, #adf8fd);
+        background-image: -moz-linear-gradient(-220deg, #1d3ede, #01e6f8);
+        background-image: -ms-linear-gradient(-220deg, #c3cbf1, #adf8fd);
+        background-image: -o-linear-gradient(-220deg, #1d3ede, #01e6f8);
+        background-image: linear-gradient(-220deg, #c3cbf1, #adf8fd);
+        left: 49.5%;
+        top: -50px;
+        z-index: -1;
+        border-radius: 50% 0 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a class="navbar-brand">SANTA FE</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a href="contacto.html">Contacto</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="sesion.html" class="btn btn-outline-dark2 my-2 my-sm-0 mr-3 text-uppercase">Iniciar sesion</a>
+                     <a href="registro.html" class="btn btn-info2 my-2 my-sm-0 text-uppercase">registrarse
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="container-start">
+            <p class="inicia-como" style="margin-bottom: 40px;">INICIAR SESION COMO:</p>
+
+            <div class="row">
+                <div class="col-md-3" style="text-align: center;">
+                    <div class="circle" id="patient">
+                        <a href="inicio.html"> <img src="images/paciente.png" alt="Paciente" ></a>
+                    </div>
+                    <p class="circle-name"> <a href="inicio.html">Paciente</a></p>
+                </div>
+                <div class="col-md-3" style="text-align: center;">
+                    <div class="circle" id="doctor">
+                        <a href="doc.html"><img src="images/doc.jpg" alt="Doctor"></a>
+                    </div>
+                    <p class="circle-name"><a href="doc.html">Doctor</a></p>
+                </div>
+                <div class="col-md-3" style="text-align: center;">
+                    <div class="circle" id="manager">
+                        <a href="jefe.html"><img src="images/jfa.png" alt="Jefe de Área"></a>
+                    </div>
+                    <p class="circle-name"><a href="jefe.html">Jefe de Área</a></p>
+                </div>
+                <div class="col-md-3" style="text-align: center;">
+                    <div class="circle" id="admin">
+                        <a href="admin.html"><img src="images/admin.png" alt="Administrador"></a>
+                    </div>
+                    <p class="circle-name"><a href="admin.html">Administrador</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

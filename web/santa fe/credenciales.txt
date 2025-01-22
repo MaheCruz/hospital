@@ -1,0 +1,19 @@
+-----CREDENCIALES-----
+PACIENTE
+    USUARIO: SF2401
+    CONTRASEÑA: usuario123
+
+DOCTOR
+    USUARIO: DOC2401
+    CONTRASEÑA: doctor123
+
+JEFE DE AREA
+    USUARIO: Pedriatria
+    CONTRASEÑA: pedriatria123
+
+ADMIN
+    USUARIO: admin
+    CONTRASEÑA: admin123
+
+NOTA: el usuario puede estar escrito en minusculas y MAYUSCULAS y aun asi lo va a aceptar, 
+        lo unico que si tiene que estar escrito como esta es la contasena.

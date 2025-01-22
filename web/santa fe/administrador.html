@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>SANTA FE</title>
+    <style>
+       
+
+        .user-info {
+            margin-bottom: 20px;
+            text-align: left; 
+            width: 100%; 
+        }
+
+        .scrollable-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .button-spacing {
+            margin-top: 20px;
+            text-align: left; 
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a href="index.html" class="navbar-brand">SANTA FE</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+        </div>
+    </nav>
+
+    <div class="container-fluid gtco-features" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="user-info text-center">
+                        <i class="fa fa-user user-icon"></i>
+                        <p>Bienvenido Administrador</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 button-spacing"> 
+                    <button class="btn btn-primary" onclick="showEmailList('pacientes')">Ver Correos de Pacientes</button>
+                    <button class="btn btn-primary" onclick="showEmailList('doctores')">Ver Correos de Doctores</button>
+                    <button class="btn btn-primary" onclick="showEmailList('jefes')">Ver Correos de Jefes de Área</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="user-info text-center">
+                        <br>
+                        <h4>Cuentas de correo</h4>
+                        <div class="scrollable-list">
+                            <table id="emailTable">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Correo</th>
+                                        <th>Área</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function showEmailList(type) {
+            var emailTable = document.getElementById('emailTable').getElementsByTagName('tbody')[0];
+            emailTable.innerHTML = ''; 
+
+            switch (type) {
+                case 'pacientes':
+                    emailTable.innerHTML += '<tr><td>Juan Perez</td><td>juanperez@example.com</td><td>-</td></tr>';
+                    emailTable.innerHTML += '<tr><td>Sandra Lopez</td><td>sandralopez@example.com</td><td>-</td></tr>';
+                    break;
+                case 'doctores':
+                    emailTable.innerHTML += '<tr><td>Juan Gomez</td><td>doctorjuan@example.com</td><td>Odontología</td></tr>';
+                    emailTable.innerHTML += '<tr><td>Pedro Perez</td><td>doctorpedro@example.com</td><td>Pediatría</td></tr>';
+                    break;
+                case 'jefes':
+                    emailTable.innerHTML += '<tr><td>Carlos Contreras</td><td>jefecarlos@example.com</td><td>Pediatría</td></tr>';
+                    emailTable.innerHTML += '<tr><td>Maria Avila</td><td>jefemaria@example.com</td><td>Medicina general</td></tr>';
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

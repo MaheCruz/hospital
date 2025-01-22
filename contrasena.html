@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- owl carousel css-->
+    <link rel="stylesheet" href="owl-carousel/assets/owl.carousel.min.css" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Recuperar contraseña</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Alinea los elementos en columna */
+            background-color: #f3f3fd;
+        }
+
+        .recovery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .recovery-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3A8EF6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+
+        #change-password-section {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Encabezado de la página -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+    <div class="container"><a class="navbar-brand">SANTA FE</a>
+        <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a href="home.html">Inicio</a></li>
+                <li class="nav-item"><a href="servicios.html">Servicios</a></li>
+                <li class="nav-item"><a href="nosotros.html">Nosotros</a></li>
+                <li class="nav-item"><a href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="index.html" class="btn btn-outline-dark my-2 my-sm-0 mr-3 text-uppercase">Iniciar sesión</a> <a href="registro.html"
+                    class="btn btn-info my-2 my-sm-0 text-uppercase">Registrarse
+                </a>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="recovery-container">
+        <form class="recovery-form" id="recoveryForm">
+            <h2>Recuperar Contraseña</h2>
+
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+            </div>
+
+            <div class="form-group">
+                <button type="button" onclick="sendCode()" id="sendCodeButton">Enviar Código</button>
+            </div>
+
+            <div class="form-group" id="change-password-section">
+                <label for="code">Código de Verificación:</label>
+                <input type="text" id="code" name="code" placeholder="Ingresa el código de 4 dígitos" maxlength="4" required>
+            </div>
+
+            <div class="form-group" id="change-password-section">
+                <label for="newPassword">Nueva Contraseña:</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Ingresa tu nueva contraseña" required>
+            </div>
+
+            <div class="form-group" id="change-password-section">
+                <label for="confirmNewPassword">Confirmar Nueva Contraseña:</label>
+                <input type="password" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirma tu nueva contraseña" required>
+            </div>
+
+            <div class="form-group" id="change-password-section">
+                <button type="button" onclick="changePassword()">Cambiar Contraseña</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function sendCode() {
+            // Aquí deberías enviar un código aleatorio al correo electrónico del usuario.
+            // También deberías manejar el temporizador y la lógica de reenviar código.
+
+            // Simulación de envío de código y activación de sección de cambio de contraseña.
+            document.getElementById('sendCodeButton').disabled = true;
+            document.getElementById('change-password-section').style.display = 'block';
+            startTimer();
+        }
+
+        function changePassword() {
+            // Aquí deberías verificar que el código ingresado coincida con el código enviado.
+            // Además, verifica que las contraseñas coincidan antes de cambiar la contraseña.
+
+            // Simulación de cambio de contraseña.
+            alert('Contraseña cambiada con éxito');
+        }
+
+        function startTimer() {
+            let seconds = 30;
+            const timerInterval = setInterval(function () {
+                document.getElementById('sendCodeButton').textContent = `Reenviar Código (${seconds}s)`;
+                seconds--;
+
+                if (seconds < 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('sendCodeButton').textContent = 'Reenviar Código';
+                    document.getElementById('sendCodeButton').disabled = false;
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>

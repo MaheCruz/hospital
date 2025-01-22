@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- owl carousel css-->
+    <link rel="stylesheet" href="owl-carousel/assets/owl.carousel.min.css" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>SANTA FE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Alinea los elementos en columna */
+            background-color: #f3f3fd;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .login-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            transition: box-shadow 0.3s;
+        }
+
+        .login-form:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-form h2,
+        .login-form button {
+            color: #3A8EF6;
+        }
+
+        .login-form img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #3A8EF6;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #002333;
+            transition: color 0.3s;
+        }
+
+        .login-form input:focus {
+            color: #000;
+        }
+
+        .login-form button {
+            background-color: #3A8EF6;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #002333;
+        }
+
+        .login-form button:focus {
+            background-color: #002333;
+        }
+
+        /* Estilos para el botón de ver contraseña */
+        .show-password-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Encabezado de la página -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a href="index.html" class="navbar-brand">SANTA FE</a>
+            
+        </div>
+    </nav>
+
+    <!-- Contenedor del formulario -->
+    <div class="login-container">
+        <form class="login-form" id="loginForm">
+            <h2>Iniciar sesión como administrador</h2>
+            <div class="form-group">
+                <label for="username" style="text-align: left;">Usuario:</label>
+                <input type="text" id="username" name="username" placeholder="Ingresa tu Usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password" style="text-align: left;">Contraseña:</label>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    <button type="button" class="show-password-button" id="togglePassword">Ver</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Iniciar Sesión</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+            // Obtiene los valores de los campos de usuario y contraseña
+            var username = document.getElementById("username").value.toLowerCase(); // Convertir a minúsculas
+            var password = document.getElementById("password").value;
+
+            // Verifica si las credenciales son correctas
+            if (username === "admin" && password === "admin123") {
+                // Redirige a doctor.html
+                window.location.href = "administrador.html";
+            } else {
+                // Muestra un mensaje de error si las credenciales son incorrectas
+                alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+            }
+        });
+
+        // Función para cambiar la visibilidad de la contraseña
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            var passwordInput = document.getElementById("password");
+            var button = document.getElementById("togglePassword");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                button.textContent = "Ocultar";
+            } else {
+                passwordInput.type = "password";
+                button.textContent = "Ver";
+            }
+        });
+    </script>
+</body>
+
+</html>

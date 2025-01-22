@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>JEFE AREA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Alinea los elementos en columna */
+            background-color: #f3f3fd;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: space-around; /* Distribuye los elementos de manera uniforme */
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .login-img {
+            display: flex;
+            justify-content: space-around; /* Distribuye los elementos de manera uniforme */
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .login-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            transition: box-shadow 0.3s;
+        }
+
+        .login-form:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-form h2,
+        .login-form button {
+            color: #3A8EF6;
+        }
+
+        .login-form img {
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #3A8EF6;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #002333;
+            transition: color 0.3s;
+        }
+
+        .login-form input:focus {
+            color: #000;
+        }
+
+        .login-form button {
+            background-color: #3A8EF6;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #002333;
+        }
+
+        .login-form button:focus {
+            background-color: #002333;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            text-align: right;
+            color: #3A8EF6;
+        }
+        #gtco-main-nav::after {
+            position: absolute;
+            content: "";
+            height: 600px;
+            width: 900px;
+            background-image: -webkit-linear-gradient(-220deg, #c3cbf1, #adf8fd);
+            background-image: -moz-linear-gradient(-220deg, #1d3ede, #01e6f8);
+            background-image: -ms-linear-gradient(-220deg, #c3cbf1, #adf8fd);
+            background-image: -o-linear-gradient(-220deg, #1d3ede, #01e6f8);
+            background-image: linear-gradient(-220deg, #c3cbf1, #adf8fd);
+            left: 49.5%;
+            top: -50px;
+            z-index: -1;
+            border-radius: 50% 0 50% 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Encabezado de la página -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a class="navbar-brand">SANTA FE</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                    class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a href="contacto.html">Contacto</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="sesion.html" class="btn btn-outline-dark2 my-2 my-sm-0 mr-3 text-uppercase">Iniciar sesion</a>
+                     <a href="registro.html" class="btn btn-info2 my-2 my-sm-0 text-uppercase">registrarse
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor del formulario y la imagen -->
+    <div class="login-container">
+        <!-- Imagen -->
+        <div class="login-img">
+            <img src="images/docjf.png" alt="Imagen de Salud" width="400" />
+        </div>
+        <!-- Formulario -->
+        <form class="login-form" id="loginForm">
+            <h2>Inicia sesión como Jefe de área</h2>
+            <div class="form-group">
+                <label for="username" style="text-align: left;">Usuario:</label>
+                <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password" style="text-align: left;">Contraseña:</label>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    <button type="button" id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">Ver</button>
+                </div>
+            </div>
+
+            <div class="form-group" style="text-align: right;">
+                <a href="contrasena.html" class="forgot-password">Olvidaste tu contraseña?</a>
+            </div>            
+
+            <div class="form-group">
+                <button type="submit">Iniciar Sesión</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+            // Obtiene los valores de los campos de usuario y contraseña
+            var username = document.getElementById("username").value.toLowerCase(); // Convertir a minúsculas
+            var password = document.getElementById("password").value;
+
+            // Verifica si las credenciales son correctas
+            if (username === "pedriatria" && password === "pedriatria123") {
+                // Redirige a gestionJF.html
+                window.location.href = "gestionJF.html";
+            } else {
+                // Muestra un mensaje de error si las credenciales son incorrectas
+                alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+            }
+        });
+
+        // Función para cambiar la visibilidad de la contraseña
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            var passwordInput = document.getElementById("password");
+            var button = document.getElementById("togglePassword");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                button.textContent = "Ocultar";
+            } else {
+                passwordInput.type = "password";
+                button.textContent = "Ver";
+            }
+        });
+    </script>
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
