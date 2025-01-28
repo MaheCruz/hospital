@@ -72,15 +72,15 @@ var Maps = function () {
         // Update position
         $(document).on('submit', '.edit_marker', function (e) {
             e.preventDefault();
-            var $index = $(this).data('marker-index');
-            $lat = $('#marker_' + $index + '_lat').val();
-            $lng = $('#marker_' + $index + '_lng').val();
-            var template = $('#edit_marker_template').text();
-            // Update form values
-            var content = template.replace(/{{index}}/g, $index).replace(/{{lat}}/g, $lat).replace(/{{lng}}/g, $lng);
+            let $index = $(this).data('marker-index');
+            let $lat = $('#marker_' + $index + '_lat').val();
+            let $lng = $('#marker_' + $index + '_lng').val();
+            let template = $('#edit_marker_template').text();
+            // Update form values=
+            let content = template.replace(/{{index}}/g, $index).replace(/{{lat}}/g, $lat).replace(/{{lng}}/g, $lng);
             map5.markers[$index].setPosition(new google.maps.LatLng($lat, $lng));
             map5.markers[$index].infoWindow.setContent(content);
-            $marker = $('#markers-with-coordinates').find('li').eq(0).find('a');
+            let $marker = $('#markers-with-coordinates').find('li').eq(0).find('a');
             $marker.data('marker-lat', $lat);
             $marker.data('marker-lng', $lng);
         });
