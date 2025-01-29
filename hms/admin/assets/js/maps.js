@@ -1,17 +1,17 @@
-var Maps = function () {
+let Maps = function () {
 	"use strict";
     //function to initiate GMaps
     //Gmaps.js allows you to use the potential of Google Maps in a simple way.
     //For more information, please visit http://hpneo.github.io/gmaps/documentation.html
-    var runMaps = function () {
+    let runMaps = function () {
         // Basic Map 
-       var  map = new GMaps({
+       let map = new GMaps({
             el: '#map1',
             lat: -12.043333,
             lng: -77.028333
         });
         //Markers
-        var map2 = new GMaps({
+        let map2 = new GMaps({
             div: '#map2',
             lat: -12.043333,
             lng: -77.028333
@@ -40,13 +40,13 @@ var Maps = function () {
             }
         });
         //Street View 
-        var panorama = GMaps.createPanorama({
+        let panorama = GMaps.createPanorama({
             el: '#map3',
             lat: 42.3455,
             lng: -71.0983
         });
         //Search Address
-        var map4 = new GMaps({
+        let map4 = new GMaps({
             div: '#map4',
             lat: -12.043333,
             lng: -77.028333
@@ -57,7 +57,7 @@ var Maps = function () {
                 address: $('#address').val().trim(),
                 callback: function (results, status) {
                     if (status == 'OK') {
-                        var latlng = results[0].geometry.location;
+                        let latlng = results[0].geometry.location;
                         map4.setCenter(latlng.lat(), latlng.lng());
                         map4.addMarker({
                             lat: latlng.lat(),
@@ -68,7 +68,7 @@ var Maps = function () {
             });
         });
         //Interacting
-        var map5;
+        let map5;
         // Update position
         $(document).on('submit', '.edit_marker', function (e) {
             e.preventDefault();
@@ -87,10 +87,10 @@ var Maps = function () {
         // Update center
         $(document).on('click', '.pan-to-marker', function (e) {
             e.preventDefault();
-            var lat, lng;
-            var $index = $(this).data('marker-index');
-            var $lat = $(this).data('marker-lat');
-            var $lng = $(this).data('marker-lng');
+            let lat, lng;
+            let $index = $(this).data('marker-index');
+            let $lat = $(this).data('marker-lat');
+            let $lng = $(this).data('marker-lng');
             if ($index != undefined) {
                 // using indices
                 var position = map5.markers[$index].getPosition();
@@ -112,11 +112,11 @@ var Maps = function () {
             $('#map-ui').append('<tr><td><a href="#" class="pan-to-marker" data-marker-index="' + map5.markers.indexOf(marker) + '">' + marker.title + '</a></td><td><a href="#" class="pan-to-marker" data-marker-lat="' + marker.getPosition().lat() + '" data-marker-lng="' + marker.getPosition().lng() + '">' + marker.title + '</a></td></tr>');
         });
         GMaps.on('click', map5.map, function (event) {
-            var index = map5.markers.length;
-            var lat = event.latLng.lat();
-            var lng = event.latLng.lng();
-            var template = $('#edit_marker_template').text();
-            var content = template.replace(/{{index}}/g, index).replace(/{{lat}}/g, lat).replace(/{{lng}}/g, lng);
+            let index = map5.markers.length;
+            let lat = event.latLng.lat();
+            let lng = event.latLng.lng();
+            let template = $('#edit_marker_template').text();
+            let content = template.replace(/{{index}}/g, index).replace(/{{lat}}/g, lat).replace(/{{lng}}/g, lng);
             map5.addMarker({
                 lat: lat,
                 lng: lng,
