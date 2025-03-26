@@ -12,6 +12,6 @@ How to run the Hospital Management System (HMS) Project
 6.Run the script http://localhost/hospital (frontend)
 
 Login Details
-Login Details for admin : admin/Test@12345
-Login Details for Patient: test@gmail.com/Test@123
+Login Details for admin : admin/Test@12345 o admin@test
+Login Details for Patient: sam@gmail.com/Test@123
 Login Details for Doctor: test@demo.com/Test@123
